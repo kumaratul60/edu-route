@@ -12,14 +12,15 @@ const Courses = () => {
   return (
     <>
       <Banner />
-      {result.map((courses) => {
+      {result.map((courses, i) => {
         return (
-          <section class="text-gray-600 body-font">
-            <div class="container px-5 mx-auto">
-              <div class="flex flex-wrap m-4">
+          <section className="text-gray-600 body-font " key={i}>
+            <div className="container px-5 mx-auto">
+              <div className="flex flex-wrap m-4 ">
                 {courses.map((course) => {
                   return (
                     <Card
+                      key={course.id}
                       image={course.img}
                       text={course.text}
                       title={course.name}

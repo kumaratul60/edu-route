@@ -42,15 +42,15 @@ const SignUp = () => {
     try {
       const { data } = await axios.post(`${BASE_URL}/api/user`, userData);
       if (data.success) {
-        await localStorage.setItem("user", JSON.stringify(data));
+        localStorage.setItem("user", JSON.stringify(data));
         setUser(data);
         navigate("/");
       }
-    } catch (err) {
-     if (error.response.data) {
-       alert(error.response.data.message);
-     }
-     console.log(error.response.data);
+    } catch (error) {
+      if (error.response.data) {
+        alert(error.response.data.message);
+      }
+      console.log(error.response.data);
     }
   };
 
