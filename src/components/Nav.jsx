@@ -1,12 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import { PageContext } from "../App";
 
 const Nav = () => {
-  const [auth, setAuth] = useState(false);
-
-  const handleAuth = () => {
-    setAuth(!auth);
-  };
+  const context = useContext(PageContext);
+  const { user, setUser } = context;
 
   return (
     <header className="text-gray-600 body-font">
@@ -26,37 +24,34 @@ const Nav = () => {
           </svg>
           <span className="ml-3 text-xl">GuideMe</span>
         </a>
+
         <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
-          <Link to={"/home"}>
-            <a className="mr-5 hover:text-gray-900">Home</a>
-          </Link>
-          <Link to={"/courses"}>
-            <a className="mr-5 hover:text-gray-900">Course</a>
-          </Link>
-          <Link to={"/competitions"}>
-            <a className="mr-5 hover:text-gray-900">Competitions</a>
-          </Link>
-          <Link to={"/get-hired"}>
-            <a className="mr-5 hover:text-gray-900">Get Hired</a>
-          </Link>
+          {user ? (
+            <>
+              <Link to={"/home"}>
+                <a className="mr-5 hover:text-gray-900">Home</a>
+              </Link>
+              <Link to={"/courses"}>
+                <a className="mr-5 hover:text-gray-900">Course</a>
+              </Link>
+              <Link to={"/competitions"}>
+                <a className="mr-5 hover:text-gray-900">Competitions</a>
+              </Link>
+              <Link to={"/get-hired"}>
+                <a className="mr-5 hover:text-gray-900">Get Hired</a>
+              </Link>
+            </>
+          ) : (
+            <>
+              <Link to={"/signin"}>
+                <a className="mr-5 hover:text-gray-900">SignIn</a>
+              </Link>
+              <Link to={"/signup"}>
+                <a className="mr-5 hover:text-gray-900">SignUp</a>
+              </Link>
+            </>
+          )}
         </nav>
-        <button
-          onClick={handleAuth}
-          className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0"
-        >
-          {auth ? "Sign-up" : "Logout"}
-          <svg
-            fill="none"
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            className="w-4 h-4 ml-1"
-            viewBox="0 0 24 24"
-          >
-            <path d="M5 12h14M12 5l7 7-7 7"></path>
-          </svg>
-        </button>
       </div>
     </header>
   );
