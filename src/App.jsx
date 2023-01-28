@@ -10,6 +10,8 @@ import Signin from "./pages/signin";
 import SignUp from "./pages/SignUp";
 import Blogs from "./pages/Blogs";
 import Profile from "./components/Profile";
+import Footer from "./components/Footer";
+
 export const PageContext = createContext();
 
 function App() {
@@ -52,6 +54,9 @@ function App() {
             </>
           )}
         </Routes>
+        <div className="bg-blue-gray-50/50">
+          <Footer />
+        </div>
       </PageContext.Provider>
     </BrowserRouter>
   );
