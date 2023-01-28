@@ -38,6 +38,9 @@ const Nav = () => {
               <Link to={"/get-hired"}>
                 <a className="mr-5 hover:text-gray-900">Get Hired</a>
               </Link>
+              <Link to={"/blogs"}>
+                <a className="mr-5 hover:text-gray-900">Blogs</a>
+              </Link>
               <button
                 onClick={() => {
                   setUser(null);
@@ -45,7 +48,7 @@ const Nav = () => {
                 }}
                 class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0"
               >
-                Logout
+                SignOut
                 <svg
                   fill="none"
                   stroke="currentColor"

@@ -7,7 +7,8 @@ import GetHired from "./pages/GetHired";
 import Home from "./pages/Home";
 import Signin from "./pages/signin";
 import SignUp from "./pages/SignUp";
-
+import Blogs from "./pages/Blogs";
+import Profile from "./components/Profile";
 export const PageContext = createContext();
 
 function App() {
@@ -38,6 +39,8 @@ function App() {
               <Route path="/courses" element={<Courses />} />
               <Route path="/competitions" element={<Competitions />} />
               <Route path="/get-hired" element={<GetHired />} />
+              <Route path="/blogs" element={<Blogs />} />
+              <Route path="/profile" element={<Profile />} />
               <Route path="/*" element={<Navigate to="/" replace />} />
             </>
           ) : (
