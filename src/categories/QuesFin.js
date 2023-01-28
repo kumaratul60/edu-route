@@ -10,7 +10,8 @@ export const QuestionsFin = [
                 c: "illegal money",
                 d: "not a money"
             }
-        ]
+        ],
+        ans: "Unpredictable money"
     },
     {
         id: 2,
@@ -22,7 +23,8 @@ export const QuestionsFin = [
                 c: "Group of stocks",
                 d: "RSU"
             }
-        ]
+        ],
+        ans: "Group of multiple funds"
     },
     {
         id: 3,
@@ -34,7 +36,8 @@ export const QuestionsFin = [
                 c: "19",
                 d: "20"
             }
-        ]
+        ],
+        ans: "18"
     }
     , {
         id: 4,
@@ -46,7 +49,8 @@ export const QuestionsFin = [
                 c: "mutual fund",
                 d: "none"
             }
-        ]
+        ],
+        ans: "vary low price stocks"
     },
     {
         id: 5,
@@ -58,6 +62,7 @@ export const QuestionsFin = [
                 c: "no",
                 d: "not sure"
             }
-        ]
+        ],
+        ans: "Yes"
     }
 ]

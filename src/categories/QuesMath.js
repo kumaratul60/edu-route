@@ -10,7 +10,8 @@ export const QuestionsMath = [
                 c: "10",
                 d: "21"
             }
-        ]
+        ],
+        ans: "20"
     },
     {
         id: 2,
@@ -22,7 +23,8 @@ export const QuestionsMath = [
                 c: "10",
                 d: "40"
             }
-        ]
+        ],
+        ans: "24"
     },
     {
         id: 3,
@@ -34,7 +36,8 @@ export const QuestionsMath = [
                 c: "8",
                 d: "0"
             }
-        ]
+        ],
+        ans: "2"
     }
     , {
         id: 4,
@@ -46,7 +49,8 @@ export const QuestionsMath = [
                 c: "8",
                 d: "45"
             }
-        ]
+        ],
+        ans: "15"
     },
     {
         id: 5,
@@ -58,6 +62,7 @@ export const QuestionsMath = [
                 c: "69",
                 d: "75"
             }
-        ]
+        ],
+        ans: "78"
     }
 ]

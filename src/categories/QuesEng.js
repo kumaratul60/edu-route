@@ -10,7 +10,8 @@ export const QuestionsEng = [
                 c: "liquid state",
                 d: "magic aspect"
             }
-        ]
+        ],
+        ans: "raw information"
     },
     {
         id: 2,
@@ -22,7 +23,8 @@ export const QuestionsEng = [
                 c: "Restart memory & Rearrange Memory",
                 d: "None"
             }
-        ]
+        ],
+        ans: "Random Access Memory & Read-Only Memory"
     },
     {
         id: 3,
@@ -34,7 +36,8 @@ export const QuestionsEng = [
                 c: ">7",
                 d: "0"
             }
-        ]
+        ],
+        ans: "~7"
     }
     , {
         id: 4,
@@ -46,7 +49,8 @@ export const QuestionsEng = [
                 c: "none",
                 d: "Out"
             }
-        ]
+        ],
+        ans: "Search Engine"
     },
     {
         id: 5,
@@ -58,6 +62,7 @@ export const QuestionsEng = [
                 c: "live data",
                 d: "formula of problem"
             }
-        ]
+        ],
+        ans: "A set of instructions"
     }
 ]
