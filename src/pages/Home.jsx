@@ -158,7 +158,7 @@ const Home = () => {
                     STEP 4
                   </h2>
                   <p className="leading-relaxed">
-                    Archive your goal ans get placed
+                    Archive your goal and get placed
                   </p>
                 </div>
               </div>
