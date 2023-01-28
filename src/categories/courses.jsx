@@ -1,12 +1,12 @@
-import civilservices from '../assets/courses/civil-service.jpg';
-import aviation from '../assets/courses/aviation.jpg';
-import medical from '../assets/courses/medical.jpg';
-import history from '../assets/courses/history.jpg';
-import nuclearScience from '../assets/courses/nuclear-science.jpg';
-import photography from '../assets/courses/photography.jfif';
-import BioTech from '../assets/courses/BioTechnology.jpg';
-import Commerce from '../assets/courses/Commerce.png';
-import architecture from '../assets/courses/architecture.avif';
+import civilservices from "../assets/courses/civil-service.jpg";
+import aviation from "../assets/courses/aviation.jpg";
+import medical from "../assets/courses/medical.jpg";
+import history from "../assets/courses/history.jpg";
+import nuclearScience from "../assets/courses/nuclear-science.jpg";
+import photography from "../assets/courses/photography.jfif";
+import BioTech from "../assets/courses/BioTechnology.jpg";
+import Commerce from "../assets/courses/Commerce.png";
+import architecture from "../assets/courses/architecture.avif";
 
 export const coursesList = [
   {
