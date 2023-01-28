@@ -63,7 +63,11 @@ const Profile = () => {
   return (
     <div className=" flex items-center justify-center m-5">
       <form className="w-full max-w-lg" onSubmit={handleFormSubmit}>
-        <div className="flex flex-wrap -mx-3 mb-5">
+        <h1 className=" flex items-center justify-center m-3 text-3xl font-bold underline">
+          {" "}
+          Profile
+        </h1>
+        <div className="flex flex-wrap mx-3 mb-5">
           <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
             <label
               className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
@@ -79,7 +83,6 @@ const Profile = () => {
               placeholder="Albuquerque"
               onChange={onChangeHandler}
               required
-              value={userData.dob}
             />
           </div>
           <div className="w-full md:w-1/2 px-3 mb-8 md:mb-0">
