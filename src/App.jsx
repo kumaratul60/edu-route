@@ -10,6 +10,8 @@ import Signin from "./pages/signin";
 import SignUp from "./pages/SignUp";
 import Blogs from "./pages/Blogs";
 import Profile from "./components/Profile";
+
+
 export const PageContext = createContext();
 
 function App() {
