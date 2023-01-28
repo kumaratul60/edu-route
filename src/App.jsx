@@ -1,5 +1,5 @@
 import React, { useEffect, useState, createContext } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Nav from "./components/Nav";
 import Competitions from "./pages/Competitions";
 import Courses from "./pages/Courses";
@@ -34,13 +34,15 @@ function App() {
         <Routes>
           {user ? (
             <>
-              <Route path="/home" element={<Home />} />
+              <Route path="/" element={<Home />} />
               <Route path="/courses" element={<Courses />} />
               <Route path="/competitions" element={<Competitions />} />
               <Route path="/get-hired" element={<GetHired />} />
+              <Route path="/*" element={<Navigate to="/" replace />} />
             </>
           ) : (
             <>
+              <Route path="/" element={<Home />} />
               <Route path="/signin" element={<Signin />} />
               <Route path="/signup" element={<SignUp />} />
             </>
