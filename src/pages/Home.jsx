@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import Footer from "../components/Footer";
 
 const Home = () => {
+  
+
   return (
     <>
       <div className="relative flex h-screen content-center items-center justify-center pt-16 pb-32">
@@ -11,6 +13,7 @@ const Home = () => {
           <div className="flex flex-wrap items-center"></div>
         </div>
       </div>
+	 
       <section className="-mt-32 bg-gray-50 px-4 pb-20 pt-4">
         <div className="container mx-auto">
           <div className="mt-32 flex flex-wrap items-center">
@@ -50,6 +53,8 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      
 
       <section className="text-gray-600 body-font px-4 pb-20 pt-4 bg-sky-500/[.06]  ">
         <div className="container px-5 py-24  flex flex-wrap ml-[6%] ">

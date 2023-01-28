@@ -4,7 +4,11 @@ export const exams = [
         name: "Civil Services Examination (CSE)",
         description:
             "The Civil Services Examination (CSE) is conducted by the Union Public Service Commission (UPSC) to recruit candidates for the Indian Administrative Service (IAS), Indian Police Service (IPS), and Indian Foreign Service (IFS), among other services. It is considered one of the toughest and most prestigious exams in India.",
+<<<<<<< Updated upstream
             img:"https://s3-ap-southeast-1.amazonaws.com/subscriber.images/free-ias-prep/2016/12/24065818/Civil-Services-Examination.jpg"
+=======
+        img: "https://4.bp.blogspot.com/-ptyE12ahkPQ/WvXmgyiebdI/AAAAAAAAC7M/GUL51a5Yx4gSR2cJN2uKtOvh3MgOu27KwCLcBGAs/s1600/CSE%2BDEPT.%2BLOGO.jpg"
+>>>>>>> Stashed changes
     },
     {
         id: 2,

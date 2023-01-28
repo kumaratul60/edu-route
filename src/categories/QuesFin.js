@@ -1,0 +1,63 @@
+export const QuestionsFin = [
+
+    {
+        id: 1,
+        ques: "What is the Stock?",
+        option: [
+            {
+                a: "Unpredictable money",
+                b: "Predictable money",
+                c: "illegal money",
+                d: "not a money"
+            }
+        ]
+    },
+    {
+        id: 2,
+        ques: "What is mutual fund?",
+        option: [
+            {
+                a: "Group of multiple funds",
+                b: "Group pf money",
+                c: "Group of stocks",
+                d: "RSU"
+            }
+        ]
+    },
+    {
+        id: 3,
+        ques: "What is age to starts brokering",
+        option: [
+            {
+                a: "18",
+                b: "17",
+                c: "19",
+                d: "20"
+            }
+        ]
+    }
+    , {
+        id: 4,
+        ques: "What are penny stocks?",
+        option: [
+            {
+                a: "vary low price stocks",
+                b: "high price stock",
+                c: "mutual fund",
+                d: "none"
+            }
+        ]
+    },
+    {
+        id: 5,
+        ques: "id necessary to learn finance?",
+        option: [
+            {
+                a: "Yes",
+                b: "Off-course",
+                c: "no",
+                d: "not sure"
+            }
+        ]
+    }
+]

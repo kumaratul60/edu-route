@@ -1,5 +1,6 @@
 import React, { useEffect, useState, createContext } from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+
 import Nav from "./components/Nav";
 import Competitions from "./pages/Competitions";
 import Courses from "./pages/Courses";
