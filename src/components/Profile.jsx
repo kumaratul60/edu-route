@@ -1,44 +1,96 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import { state } from "../categories/States";
-
+import { PageContext } from "../App";
+import axios from "axios";
+import { BASE_URL } from "../../constants";
+import { useNavigate } from "react-router-dom";
 const Profile = () => {
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
+  const [userData, setUserData] = useState({
+    dob: "",
+    gender: "",
+    city: "",
+    zip: "",
+    state: "",
+    academic: {
+      higher: "",
+      level: "",
+    },
+  });
+
+  const context = useContext(PageContext);
+    const { user, setUser } = context;
+    const navigate = useNavigate();
+
+  const handleFormSubmit = async (e) => {
+      e.preventDefault();
+      
+    try {
+      const { data } = await axios.put(
+        `${BASE_URL}/api/user/${user._id}`,
+        userData
+      );
+      if (data.success) {
+        localStorage.setItem("user", JSON.stringify(data));
+        setUser(data);
+        navigate("/");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const onChangeHandler = (e) => {
+    if (e.target.name === "higher" || e.target.name === "level") {
+      setUserData({
+        ...userData,
+        academic: { ...userData.academic, [e.target.name]: e.target.value },
+      });
+      return;
+    }
+
+    setUserData({ ...userData, [e.target.name]: e.target.value });
   };
 
   return (
     <div className=" flex items-center justify-center m-5">
-      <form className="w-full max-w-lg" onClick={handleFormSubmit}>
+      <form className="w-full max-w-lg" onSubmit={handleFormSubmit}>
         <div className="flex flex-wrap -mx-3 mb-5">
           <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
             <label
               className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              htmlFor="grid-city"
+              htmlFor="dob"
             >
               DOB
             </label>
             <input
               className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-              id="grid-city"
+              id="dob"
               type="date"
+              name="dob"
               placeholder="Albuquerque"
+                          onChange={onChangeHandler}
+                          required
             />
           </div>
           <div className="w-full md:w-1/2 px-3 mb-8 md:mb-0">
             <label
               className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              htmlFor="grid-state"
+              htmlFor="gender"
             >
               Gender
             </label>
             <div className="relative">
               <select
                 className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="grid-state"
+                id="gender"
+                name="gender"
+                              onChange={onChangeHandler}
+                              placeholder="Gender"
+                                required
               >
-                <option>Male</option>
-                <option>Female</option>
-                <option>Prefer to not say</option>
+                <option value={"Male"}>Male</option>
+                <option value={"Female"}>Female</option>
+                <option value={"other"}>Prefer to not say</option>
               </select>
               <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                 <svg
@@ -57,35 +109,41 @@ const Profile = () => {
           <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
             <label
               className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              htmlFor="grid-city"
+              htmlFor="higher"
             >
               Higher Education
             </label>
             <input
               className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-              id="grid-city"
+              id="higher"
               type="text"
+              name="higher"
               placeholder="Albuquerque"
+                          onChange={onChangeHandler}
+                            required
             />
           </div>
           <div className="w-full md:w-1/2 px-3 mb-8 md:mb-0">
             <label
               className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              htmlFor="grid-state"
+              htmlFor="level"
             >
               Level
             </label>
             <div className="relative">
               <select
                 className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="grid-state"
+                id="level"
+                name="level"
+                              onChange={onChangeHandler}
+                              required
               >
-                <option>Some schools</option>
-                <option>10th</option>
-                <option>12th</option>
-                <option>UG</option>
-                <option>PG</option>
-                <option>Prefer to not say</option>
+                <option value={"some_schools"}>Some schools</option>
+                <option value={"10th"}>10th</option>
+                <option value={"12th"}>12th</option>
+                <option value={"UG"}>UG</option>
+                <option value={"PG"}>PG</option>
+                <option value={"other"}>Prefer to not say</option>
               </select>
               <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                 <svg
@@ -103,28 +161,35 @@ const Profile = () => {
             <div className="w-full md:w-1/3 px-2 mb-5 md:mb-0 ">
               <label
                 className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2 "
-                htmlFor="grid-city"
+                htmlFor="city"
               >
                 City
               </label>
               <input
                 className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="grid-city"
+                id="city"
+                name={"city"}
                 type="text"
                 placeholder="Albuquerque"
-              />
+                              onChange={onChangeHandler}
+                              required
+                          />
+                          
             </div>
             <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
               <label
                 className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                htmlFor="grid-state"
+                htmlFor="state"
               >
                 State
               </label>
               <div className="relative">
                 <select
                   className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                  id="grid-state"
+                  id="state"
+                  name="state"
+                                  onChange={onChangeHandler}
+                                  required
                 >
                   {state.map((item) => (
                     <option key={item.key} value={item.name}>
@@ -146,15 +211,18 @@ const Profile = () => {
             <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
               <label
                 className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                htmlFor="grid-zip"
+                htmlFor="zip"
               >
                 Zip
               </label>
               <input
                 className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="grid-zip"
+                id="zip"
+                name="zip"
                 type="text"
                 placeholder={1234}
+                              onChange={onChangeHandler}
+                              required
               />
             </div>
           </div>
@@ -162,22 +230,25 @@ const Profile = () => {
         <div className="w-full  px-3 mb-6 md:mb-0">
           <label
             className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-            htmlFor="grid-state"
+            htmlFor="vision"
           >
             Have your Vision cleared ?
           </label>
           <div className="relative">
             <select
               className="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-              id="grid-state"
+              id="vision"
+              name="vision"
+                          onChange={onChangeHandler}
+                          required
             >
-              <option>Mass communication</option>
-              <option>Engineering</option>
-              <option>Doctor</option>
-              <option>Finance</option>
-              <option>MBA</option>
-              <option>SSC</option>
-              <option>IAS</option>
+              <option value={"mass-communication"}>Mass communication</option>
+              <option value={"engineering"}>Engineering</option>
+              <option value={"doctor"}>Doctor</option>
+              <option value={"finance"}>Finance</option>
+              <option value="MBA">MBA</option>
+              <option value={"SSC"}>SSC</option>
+              <option value={"IAS"}>IAS</option>
             </select>
             <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
               <svg
