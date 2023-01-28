@@ -1,7 +1,39 @@
 import React from "react";
+import Card from '../components/Card';
+import Banner from "../components/Banner";
+
+import { coursesList } from "../categories/courses";
 
 const Courses = () => {
-  return <div>Courses</div>;
+   const numsPerGroup = Math.ceil(coursesList.length / 3);
+   const result = new Array(3)
+   .fill('')
+   .map((_, i) => coursesList.slice(i * numsPerGroup, (i + 1) * numsPerGroup));
+  return (
+   <>
+      <Banner />
+      {
+         result.map((courses) => {
+            return <section class="text-gray-600 body-font">
+               <div class="container px-5 mx-auto">
+                  <div class="flex flex-wrap m-4">
+                     {
+                        courses.map( (course) => {
+                           return <Card 
+                              image={course.img}
+                              text={course.text}
+                              title={course.name}
+                           />
+                        })
+                     }
+                  </div>
+               </div>
+            </section>
+                  
+         })
+      }
+   </>
+  );
 };
 
 export default Courses;
