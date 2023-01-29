@@ -71,21 +71,6 @@ const Profile = () => {
       return;
     }
 
-    if (
-      e.target.name === "vision" &&
-      e.target.value === "no" &&
-      (!userData.city ||
-        !userData.dob ||
-        !userData.gender ||
-        !userData.state ||
-        !userData.zip ||
-        !userData.academic.higher ||
-        !userData.academic.level)
-    ) {
-      alert("Please Fill the form");
-      return;
-    }
-
     setUserData({ ...userData, [e.target.name]: e.target.value });
   };
 
