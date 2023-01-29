@@ -77,14 +77,17 @@ const Profile = () => {
     <div className=" flex items-center justify-center m-5">
       <form className="w-full max-w-lg" onSubmit={handleFormSubmit}>
         {userData.vision == "no" ? (
-          data.map((item, index) => (
-            <OptionQuestion
-              key={index}
-              data={item}
-              dataIndex={index}
-              onChangeHandlerVision={onChangeHandlerVision}
-            />
-          ))
+          data.map((item, index) => {
+          
+            return (
+              <OptionQuestion
+                key={index}
+                data={item}
+                dataIndex={index}
+                onChangeHandlerVision={onChangeHandlerVision}
+              />
+            );
+          })
         ) : (
           <>
             <div className="flex flex-wrap -mx-3 mb-5">
