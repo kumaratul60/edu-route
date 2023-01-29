@@ -55,6 +55,9 @@ const Profile = () => {
       if (data.success) {
         localStorage.setItem("user", JSON.stringify(data.data));
         setUser(data.data);
+        alert(
+          "Congratulation! This test I found that you more align with Engineering and second alignment is MBA !!"
+        );
         navigate("/");
       }
     } catch (error) {
