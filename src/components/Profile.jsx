@@ -37,15 +37,20 @@ const Profile = () => {
         setUserData(user?.data);
       }
     }
+
   }, []);
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    userData.vision = "MBA";
+    let sendData = { ...userData };
+    if (userData.vision == "no") {
+       sendData = { ...userData, vision: "MBA" };
+    }
+
     try {
       const { data } = await axios.put(
         `${BASE_URL}/api/user/${user._id}`,
-        userData
+        sendData
       );
       if (data.success) {
         localStorage.setItem("user", JSON.stringify(data));
