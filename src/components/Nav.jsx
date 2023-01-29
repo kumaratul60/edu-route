@@ -37,8 +37,8 @@ const Nav = () => {
         <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center ">
           {user ? (
             <>
-              <Link to={"/profile"}>
-                <a className="mr-5 hover:text-gray-900">Profile</a>
+              <Link to={"/home"}>
+                <a className="mr-5 hover:text-gray-900">Home</a>
               </Link>
               <Link to={"/courses"}>
                 <a className="mr-5 hover:text-gray-900">Course</a>
@@ -51,6 +51,9 @@ const Nav = () => {
               </Link>
               <Link to={"/blogs"}>
                 <a className="mr-5 hover:text-gray-900">Blogs</a>
+              </Link>
+              <Link to={"/profile"}>
+                <a className="mr-5 hover:text-gray-900">Profile</a>
               </Link>
               <button
                 onClick={() => {

@@ -78,7 +78,6 @@ const Profile = () => {
       <form className="w-full max-w-lg" onSubmit={handleFormSubmit}>
         {userData.vision == "no" ? (
           data.map((item, index) => {
-          
             return (
               <OptionQuestion
                 key={index}
@@ -103,7 +102,7 @@ const Profile = () => {
                   id="dob"
                   type="date"
                   name="dob"
-                  placeholder="Albuquerque"
+                  placeholder="05/04/1997"
                   onChange={onChangeHandler}
                   required
                   value={userData.dob}
@@ -155,7 +154,7 @@ const Profile = () => {
                   id="higher"
                   type="text"
                   name="higher"
-                  placeholder="Albuquerque"
+                  placeholder="B.A"
                   onChange={onChangeHandler}
                   required
                   value={userData.academic.higher}
@@ -209,7 +208,7 @@ const Profile = () => {
                     id="city"
                     name={"city"}
                     type="text"
-                    placeholder="Albuquerque"
+                    placeholder="Mumbai"
                     onChange={onChangeHandler}
                     required
                     value={userData.city}
@@ -284,7 +283,10 @@ const Profile = () => {
                   required
                   value={userData.vision}
                 >
-                  <option value={"no"}>No</option>
+                  <option value="" selected>
+                    Select vision
+                  </option>
+
                   <option value={"mass-communication"}>
                     Mass communication
                   </option>
@@ -294,6 +296,7 @@ const Profile = () => {
                   <option value="MBA">MBA</option>
                   <option value={"SSC"}>SSC</option>
                   <option value={"IAS"}>IAS</option>
+                  <option value={"no"}>No</option>
                 </select>
                 <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                   <svg
