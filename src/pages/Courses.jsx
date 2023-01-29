@@ -16,14 +16,14 @@ const Courses = () => {
     <div className="flex flex-wrap -m-4">
       <Banner />
       <div className="text-gray-600 body-font">
-        <div className="container px-5 py-24 mx-auto">
-          <div className="flex flex-wrap -m-4">
+        <div className="container px-5 py-24 mx-auto ">
+          <div className="flex flex-wrap -m-4 ">
             {result.length > 0 &&
               result.map((item) => (
-                <div className="p-4 md:w-1/3">
+                <div key={item.id} className="p-4 md:w-1/3 ">
                   <div
                     key={item.id}
-                    className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden"
+                    className="h-full border-2 border-gray-200 border-opacity-60 overflow-hidden rounded-2xl cursor-pointer hover:shadow-lg hover:bg-gradient-to-t hover:from-red-200 hover:text-red-900  first:border-t-2 "
                   >
                     <img
                       className="lg:h-48 md:h-36 w-full object-cover object-center"

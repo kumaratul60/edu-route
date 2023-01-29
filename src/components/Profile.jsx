@@ -8,6 +8,7 @@ import { QuestionsEng } from "../categories/QuesEng";
 import { QuestionsFin } from "../categories/QuesFin";
 import { QuestionsMath } from "../categories/QuesMath";
 import OptionQuestion from "./OptionQuestion";
+
 const Profile = () => {
   const [userData, setUserData] = useState({
     dob: "",
@@ -50,6 +51,9 @@ const Profile = () => {
       if (data.success) {
         localStorage.setItem("user", JSON.stringify(data));
         setUser(data);
+        alert(
+          "Congratulations! from there small test I found that you are more align with Engineering and second alignment is MBA!!"
+        );
         navigate("/");
       }
     } catch (error) {
