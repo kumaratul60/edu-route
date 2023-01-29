@@ -38,14 +38,13 @@ const Profile = () => {
         setUserData(user?.data);
       }
     }
-
   }, []);
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     let sendData = { ...userData };
     if (userData.vision == "no") {
-       sendData = { ...userData, vision: "MBA" };
+      sendData = { ...userData, vision: "MBA" };
     }
 
     try {
@@ -54,11 +53,8 @@ const Profile = () => {
         sendData
       );
       if (data.success) {
-        localStorage.setItem("user", JSON.stringify(data));
-        setUser(data);
-        alert(
-          "Congratulations! from there small test I found that you are more align with Engineering and second alignment is MBA!!"
-        );
+        localStorage.setItem("user", JSON.stringify(data.data));
+        setUser(data.data);
         navigate("/");
       }
     } catch (error) {
@@ -72,6 +68,21 @@ const Profile = () => {
         ...userData,
         academic: { ...userData.academic, [e.target.name]: e.target.value },
       });
+      return;
+    }
+
+    if (
+      e.target.name === "vision" &&
+      e.target.value === "no" &&
+      (!userData.city ||
+        !userData.dob ||
+        !userData.gender ||
+        !userData.state ||
+        !userData.zip ||
+        !userData.academic.higher ||
+        !userData.academic.level)
+    ) {
+      alert("Please Fill the form");
       return;
     }
 
